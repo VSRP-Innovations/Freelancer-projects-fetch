@@ -46,12 +46,18 @@ const calculateTimePosted = (timestamp: number) => {
 export const ProjectItem = ({
 	project,
 	eventKey,
+	isUnRead,
 }: {
 	project: Project;
 	eventKey: string;
+	isUnRead: boolean;
 }) => (
 	<Accordion.Item eventKey={eventKey}>
-		<Accordion.Header>
+		<Accordion.Header
+			style={
+				isUnRead ? {backgroundColor: "rgba(255, 255, 12, 0.11)"} : {}
+			}
+		>
 			<div className={styles.header}>
 				<div className={styles.project_div}>
 					<span className={styles.time_posted}>

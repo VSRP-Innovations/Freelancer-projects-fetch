@@ -6,13 +6,14 @@ import {Project} from "../background_script/fetchProjects";
 
 export const List = () => {
 	const [projects, setProjects] = useState<Project[]>([]);
+	const [unReadProjectsCount, setUnReadProjectsCount] = useState(0);
 
 	const fetchProjects = useCallback(() => {
-		chrome.storage.local.get(["projects"], (result) => {
-			console.log(result.projects);
+		chrome.storage.local.get(["projects", "unReadProjectsCount"], (result) => {
 			setProjects(result.projects || []);
+			setUnReadProjectsCount(result.unReadProjectsCount || 0);
+			chrome.storage.local.set({ unReadProjectsCount: 0 })
 		});
-		chrome.storage.local.set({ unReadProjectsCount: 0 })
 		chrome.action.setBadgeText({text: ``}); 
 	}, []);
 
@@ -20,7 +21,7 @@ export const List = () => {
 		fetchProjects();
 		const timeout = setInterval(() => {
 			fetchProjects();
-		}, 1000);
+		}, 10000);
 
 		return () => clearInterval(timeout);
 	}, [fetchProjects]);
@@ -33,6 +34,7 @@ export const List = () => {
 						project={project}
 						eventKey={index.toString()}
 						key={index.toString()}
+						isUnRead={index < unReadProjectsCount}
 					/>
 				))}
 			</Accordion>
