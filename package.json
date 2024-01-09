@@ -1,0 +1,57 @@
+{
+  "name": "freelancer-projects-extension",
+  "description": "A chrome extension for continuously checking freelancer.com and upwork projects.",
+  "version": "1.0.0",
+  "author": "http://freelancer.com/u/vikasg603",
+  "dependencies": {
+    "@craco/craco": "^7.1.0",
+    "@testing-library/jest-dom": "^6.2.0",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/chrome": "^0.0.256",
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.10.8",
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
+    "bootstrap": "^5.3.2",
+    "dotenv-webpack": "^8.0.1",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.9.2",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.3.3",
+    "web-vitals": "^3.5.1"
+  },
+  "scripts": {
+    "start": "craco start --config config/craco.config.dev.js ",
+    "build": "npm run clean && craco build --config config/craco.config.prod.js INLINE_RUNTIME_CHUNK=false && rm build/index.html",
+    "test": "craco test --config config/craco.config.js",
+    "clean": "rimraf build/"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "css-loader": "^6.9.0",
+    "html-webpack-plugin": "^5.6.0",
+    "react-scripts": "^5.0.1",
+    "rimraf": "^5.0.5",
+    "style-loader": "^3.3.4",
+    "ts-loader": "^9.5.1",
+    "webpack": "^5.89.0"
+  }
+}

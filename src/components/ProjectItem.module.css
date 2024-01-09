@@ -1,0 +1,47 @@
+.time_posted {
+    font-size: 12px;
+    color: #8e8e8e;
+}
+.project_title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.budget {
+    font-size: 14px;
+    color: #8e8e8e;
+    margin-right: 10px;
+}
+
+.description {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #8e8e8e;
+    background-color: rgb(13, 17, 23) !important;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header button {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.project_div {
+    display: flex;
+    flex-direction: column;
+}
+
+.platform {
+    font-weight: 600;
+}
+
+.description pre {
+    cursor: pointer;
+}
